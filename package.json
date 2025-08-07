@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "call_foursquare.js",
+ 
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon call_foursquare.js"
   },
   "repository": {
     "type": "git",
@@ -22,5 +24,8 @@
     "axios": "^1.11.0",
     "dotenv": "^17.2.1",
     "openai": "^5.10.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }

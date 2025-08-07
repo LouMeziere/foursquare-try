@@ -29,7 +29,7 @@ async function processUserInput(userInput) {
               "categories": [], 
               "location": "city name",
               "duration": number,
-              "pace": "busy or relaxed",
+              "pace": "low/medium/high pace",
               "budget": "low/medium/high"
             }`
           }]
@@ -69,8 +69,8 @@ async function processUserInput(userInput) {
       categories: ["food", "culture", "nature"],
       location: "Montreal",
       duration: 3,
-      pace: "relaxed",
-      budget: "medium"
+      pace: "high",
+      budget: "high"
     };
   }
 }
@@ -119,6 +119,7 @@ async function generateTrip(userInput) {
   try {
     // Step 1: Use Gemini to process the user input
     const tripPreferences = await processUserInput(userInput);
+    
 
     // Step 2: For each category, search for places
     const placesPromises = tripPreferences.categories.map(category => 
@@ -164,7 +165,7 @@ async function generateTrip(userInput) {
 async function test() {
   try {
     const trip = await generateTrip(
-      "I want to spend 2 days in Bordeaux exploring food and culture"
+      "I want to spend 2 days in Bordeaux exploring food and culture. I am solo travelling and generally prefer a relaxed pace and a medium budget trip."
     );
     console.log(JSON.stringify(trip, null, 2));
   } catch (error) {
@@ -173,3 +174,9 @@ async function test() {
 }
 
 // Run the test when you run `node thisfile.
+
+
+// Run test
+test();
+
+module.exports = { generateTrip, processUserInput, searchPlaces };
